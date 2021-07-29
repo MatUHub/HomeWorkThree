@@ -5,9 +5,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    static String TAG = "displayText";
 
     TextView textView;
 
@@ -29,12 +32,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button buttonDot;
     Button buttonEquals;
 
+    DisplayText displayText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initView();
+        initListener();
+        displayText = new DisplayText();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(TAG, displayText);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        displayText = savedInstanceState.getParcelable(TAG);
+    }
+
+    private void initListener() {
+        buttonOne.setOnClickListener(this);
+        buttonTwo.setOnClickListener(this);
+        buttonThree.setOnClickListener(this);
+        buttonFour.setOnClickListener(this);
+        buttonFive.setOnClickListener(this);
+        buttonSix.setOnClickListener(this);
+        buttonSeven.setOnClickListener(this);
+        buttonEight.setOnClickListener(this);
+        buttonNine.setOnClickListener(this);
+        buttonZero.setOnClickListener(this);
+        buttonPlus.setOnClickListener(this);
+        buttonSubtract.setOnClickListener(this);
+        buttonMultiply.setOnClickListener(this);
+        buttonDivision.setOnClickListener(this);
+        buttonComma.setOnClickListener(this);
+        buttonDot.setOnClickListener(this);
+        buttonEquals.setOnClickListener(this);
+    }
+
+    private void initView() {
         textView = findViewById(R.id.text_view);
 
         buttonOne = findViewById(R.id.button_one);
@@ -54,80 +96,78 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonComma = findViewById(R.id.button_comma);
         buttonDot = findViewById(R.id.button_dot);
         buttonEquals = findViewById(R.id.button_equals);
-
-        buttonOne.setOnClickListener(this);
-        buttonTwo.setOnClickListener(this);
-        buttonThree.setOnClickListener(this);
-        buttonFour.setOnClickListener(this);
-        buttonFive.setOnClickListener(this);
-        buttonSix.setOnClickListener(this);
-        buttonSeven.setOnClickListener(this);
-        buttonEight.setOnClickListener(this);
-        buttonNine.setOnClickListener(this);
-        buttonZero.setOnClickListener(this);
-        buttonPlus.setOnClickListener(this);
-        buttonSubtract.setOnClickListener(this);
-        buttonMultiply.setOnClickListener(this);
-        buttonDivision.setOnClickListener(this);
-        buttonComma.setOnClickListener(this);
-        buttonDot.setOnClickListener(this);
-        buttonEquals.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_one:
-                textView.setText("1");
+                displayText.setText("1");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_two:
-                textView.setText("2");
+                displayText.setText("2");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_three:
-                textView.setText("3");
+                displayText.setText("3");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_four:
-                textView.setText("4");
+                displayText.setText("4");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_five:
-                textView.setText("5");
+                displayText.setText("5");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_six:
-                textView.setText("6");
+                displayText.setText("6");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_seven:
-                textView.setText("7");
+                displayText.setText("7");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_eight:
-                textView.setText("8");
+                displayText.setText("8");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_nine:
-                textView.setText("9");
+                displayText.setText("9");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_zero:
-                textView.setText("0");
+                displayText.setText("0");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_plus:
-                textView.setText("+");
+                displayText.setText("+");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_subtract:
-                textView.setText("-");
+                displayText.setText("-");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_multiply:
-                textView.setText("*");
+                displayText.setText("*");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_division:
-                textView.setText("/");
+                displayText.setText("/");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_comma:
-                textView.setText(",");
+                displayText.setText(",");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_dot:
-                textView.setText(".");
+                displayText.setText(".");
+                textView.setText(displayText.getText());
                 break;
             case R.id.button_equals:
-                textView.setText("=");
+                displayText.setText("=");
+                textView.setText(displayText.getText());
                 break;
             default:
                 break;
