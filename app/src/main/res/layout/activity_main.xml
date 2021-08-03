@@ -76,7 +76,7 @@
         android:id="@+id/button_seven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="@dimen/button_margin_top"
         android:text="@string/seven"
         android:textSize="@dimen/button_text_size"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
